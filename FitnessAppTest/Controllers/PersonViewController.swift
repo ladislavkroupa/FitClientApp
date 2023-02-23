@@ -29,7 +29,7 @@ class PersonViewController: UITableViewController {
         personManager.loadPersons()
         
         
-        tableView.register(UINib(nibName: K.personCellNibName, bundle: nil), forCellReuseIdentifier: K.personCellIdentifier)
+        tableView.register(UINib(nibName: K.personCellNibName, bundle: nil), forCellReuseIdentifier: K.personReusableCellIdentifier)
         
     }
    
@@ -78,7 +78,7 @@ class PersonViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segueTestIdentifier {
+        if segue.identifier == K.segueGoToExerciseIdentifier {
             let destinationVC = segue.destination as! ExerciseViewController
             
             //destinationVC.exerciseArray = getExerciseArray()
@@ -101,7 +101,7 @@ class PersonViewController: UITableViewController {
         customIndexPath = indexPath.row
         
         
-        performSegue(withIdentifier: K.segueTestIdentifier, sender: self)
+        performSegue(withIdentifier: K.segueGoToExerciseIdentifier, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -111,7 +111,7 @@ class PersonViewController: UITableViewController {
         let person = personArray[indexPath.row]
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.personCellIdentifier, for: indexPath) as! PersonCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.personReusableCellIdentifier, for: indexPath) as! PersonCell
         
         
         cell.nameLabel.text = person.name

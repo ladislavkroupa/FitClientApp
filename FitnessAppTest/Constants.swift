@@ -7,19 +7,19 @@
 
 struct K {
     
-    static let cellIdentifier = "ReusableCell"
-    static let userDataCell = "UserDataCell"
-    static let exerciseCellNibName = "ExerciseCell"
+    //Identifikátory, které se vyskytují v xib souborech jednotlivých, v main.storyboard u jednotlivých VC, kde se mají buňky poižívat a také u registrace reusableCell.
+    static let personReusableCellIdentifier = "personReusableCell"
+    static let exerciseReusableCellIdentifier = "exerciseReusableCell"
+    
+    
+    //Názvy XIB souborů, které je nutné uvést při registraci.
     static let personCellNibName = "PersonCell"
+    static let exerciseCellNibName = "ExerciseCell"
     
-    static let personCellIdentifier = "personCell"
+    //Identifikátor segue z Person -> Exercise
+    static let segueGoToExerciseIdentifier = "goToExercise"
     
-    static let segueTestIdentifier = "goToExercise"
-    
-    
-    
-    
-    
+    //Ukládání dat do pListu
     static let personPList = "Person.plist"
     
 }

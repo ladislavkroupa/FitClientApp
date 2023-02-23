@@ -34,7 +34,7 @@ class ExerciseViewController: UIViewController {
         tableView.delegate = self
         
         
-        tableView.register(UINib(nibName: K.exerciseCellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        tableView.register(UINib(nibName: K.exerciseCellNibName, bundle: nil), forCellReuseIdentifier: K.exerciseReusableCellIdentifier)
         
         
         
@@ -118,7 +118,7 @@ extension ExerciseViewController: UITableViewDataSource {
         
         let person = allPersonArray[personIndex].exercise![indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! ExerciseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.exerciseReusableCellIdentifier, for: indexPath) as! ExerciseCell
         
         
         cell.datumLabel.text = person.date
