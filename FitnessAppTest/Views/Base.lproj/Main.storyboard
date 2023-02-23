@@ -36,7 +36,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cvičení" id="MFh-LF-PEu">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="SvH-eL-QIX"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="SvH-eL-QIX">
+                            <connections>
+                                <action selector="addBtnPressed:" destination="BYZ-38-t0r" id="V7y-Zl-dVE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yUD-Nc-j35" id="x6b-AX-hOU"/>
@@ -72,10 +76,13 @@
                     <navigationItem key="navigationItem" title="Klienti" id="kl0-xP-V6X">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="tjA-Co-3xp">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="goToExercise" id="a8O-qm-fb6"/>
+                                <action selector="addBtnPressed:" destination="Rnh-gP-DkT" id="w0h-kt-fkv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToExercise" id="7dU-5K-r6v"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTw-mg-hel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRA-Wh-idc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615" y="-244"/>
+            <point key="canvasLocation" x="-500" y="-655"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o0g-Sn-AOq">

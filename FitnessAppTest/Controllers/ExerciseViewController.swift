@@ -45,7 +45,8 @@ class ExerciseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    @IBAction func addBtnPressed(_ sender: UIButton) {
+    
+    @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
         
         var textFieldDate = UITextField()
         var textFieldWeight = UITextField()
@@ -84,8 +85,6 @@ class ExerciseViewController: UIViewController {
         
         
     }
-    
-    
     
 }
 
@@ -147,7 +146,9 @@ extension ExerciseViewController: UITableViewDelegate {
         
         tableView.reloadData()
     }
- }
+}
+
+
 
 
 

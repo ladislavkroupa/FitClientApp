@@ -32,10 +32,12 @@ class PersonViewController: UITableViewController {
         tableView.register(UINib(nibName: K.personCellNibName, bundle: nil), forCellReuseIdentifier: K.personCellIdentifier)
         
     }
+   
     
     
-    @IBAction func btnTestPressed(_ sender: UIButton) {
-       
+    
+    @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
+        
         let alert = UIAlertController(title: "Přidejte nového klienta", message: "Uložte nového klienta", preferredStyle: .alert)
         let action = UIAlertAction(title: "Uložit", style: .default) { (action) in
             
@@ -48,11 +50,8 @@ class PersonViewController: UITableViewController {
                 
             }
             
-        }
-        
-        
-        
-        
+    }
+    
         alert.addTextField { (alertTextFieldName) in
             alertTextFieldName.placeholder = "Jméno"
             self.textFieldName = alertTextFieldName
@@ -73,8 +72,7 @@ class PersonViewController: UITableViewController {
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        
-        
+
         
         
     }
