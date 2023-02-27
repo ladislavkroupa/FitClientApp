@@ -22,6 +22,7 @@
 		765659FA29A36FC40054FB66 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765659F929A36FC40054FB66 /* PersonCell.xib */; };
 		765659FC29A542860054FB66 /* PersonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765659FB29A542860054FB66 /* PersonManager.swift */; };
 		765659FE29A750280054FB66 /* ExerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765659FD29A750280054FB66 /* ExerSelectionViewController.swift */; };
+		76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		765659F929A36FC40054FB66 /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		765659FB29A542860054FB66 /* PersonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonManager.swift; sourceTree = "<group>"; };
 		765659FD29A750280054FB66 /* ExerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerSelectionViewController.swift; sourceTree = "<group>"; };
+		76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseAlertVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +92,9 @@
 		7638E02629A1232D0021659C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				76565A0029A7AA9F0054FB66 /* AlertViewController */,
 				765659F829A36D8E0054FB66 /* Person */,
-				7638E02F29A125440021659C /* ExerciseCell.xib */,
-				7638E02929A1239A0021659C /* ExerciseCell.swift */,
+				765659FF29A7AA950054FB66 /* Exercise */,
 				7638E01829A116C70021659C /* Main.storyboard */,
 			);
 			path = Views;
@@ -124,6 +126,23 @@
 				765659F929A36FC40054FB66 /* PersonCell.xib */,
 			);
 			path = Person;
+			sourceTree = "<group>";
+		};
+		765659FF29A7AA950054FB66 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */,
+				7638E02F29A125440021659C /* ExerciseCell.xib */,
+				7638E02929A1239A0021659C /* ExerciseCell.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		76565A0029A7AA9F0054FB66 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AlertViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +223,7 @@
 				7638E02A29A1239A0021659C /* ExerciseCell.swift in Sources */,
 				7638E03E29A36BB10021659C /* PersonCell.swift in Sources */,
 				7638E03229A1280C0021659C /* Constants.swift in Sources */,
+				76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */,
 				7638E01329A116C70021659C /* AppDelegate.swift in Sources */,
 				7638E03629A35B620021659C /* Person.swift in Sources */,
 				7638E01529A116C70021659C /* SceneDelegate.swift in Sources */,

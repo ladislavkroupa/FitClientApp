@@ -89,7 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cvičení" id="MFh-LF-PEu">
+                    <navigationItem key="navigationItem" title="Exercise" id="MFh-LF-PEu">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="SvH-eL-QIX">
                             <connections>
                                 <action selector="addBtnPressed:" destination="BYZ-38-t0r" id="V7y-Zl-dVE"/>
@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113.74045801526717" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="486" y="-306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o0g-Sn-AOq">
@@ -120,10 +120,123 @@
             </objects>
             <point key="canvasLocation" x="-2289" y="5"/>
         </scene>
+        <!--NewExerciseAlertVC-->
+        <scene sceneID="Buh-Eh-gTy">
+            <objects>
+                <viewController storyboardIdentifier="NewExerciseAlertVC" title="NewExerciseAlertVC" id="CVE-QJ-keg" customClass="NewExerciseAlertVC" customModule="FitnessAppTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aep-xt-ULf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIH-EK-sYe">
+                                <rect key="frame" x="40" y="281" width="313" height="290"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKs-Wq-gcv">
+                                        <rect key="frame" x="107.33333333333334" y="68" width="98.333333333333343" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-U4-PeI">
+                                        <rect key="frame" x="30" y="116" width="253" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Uuq-pV-eCY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="NvG-Es-7Vq">
+                                        <rect key="frame" x="30" y="241.66666666666666" width="253" height="33.333333333333343"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUJ-qc-t4T">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="33.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="cancelBtnPressed:" destination="CVE-QJ-keg" eventType="touchUpInside" id="Ozq-yT-Xo2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-YH-NTZ">
+                                                <rect key="frame" x="156" y="0.0" width="97" height="33.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Ok">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="okBtnPressed:" destination="CVE-QJ-keg" eventType="touchUpInside" id="boy-IM-wz1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89D-Vb-8nf">
+                                        <rect key="frame" x="123.33333333333334" y="30" width="66.333333333333343" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Váha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYl-OS-U20">
+                                        <rect key="frame" x="30" y="176" width="253" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Wjo-VG-2E4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstItem="wKs-Wq-gcv" firstAttribute="top" secondItem="89D-Vb-8nf" secondAttribute="bottom" constant="20" id="11f-Uq-bqY"/>
+                                    <constraint firstItem="rYl-OS-U20" firstAttribute="top" secondItem="Lxr-U4-PeI" secondAttribute="bottom" constant="20" id="4iV-H7-qM4"/>
+                                    <constraint firstItem="89D-Vb-8nf" firstAttribute="centerX" secondItem="SIH-EK-sYe" secondAttribute="centerX" id="Jfy-st-wbi"/>
+                                    <constraint firstItem="rYl-OS-U20" firstAttribute="centerX" secondItem="SIH-EK-sYe" secondAttribute="centerX" id="MQh-kX-Thq"/>
+                                    <constraint firstItem="rYl-OS-U20" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="Qbf-i3-4z9"/>
+                                    <constraint firstItem="NvG-Es-7Vq" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="ZFt-Hk-vvj"/>
+                                    <constraint firstItem="Lxr-U4-PeI" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="f6l-4K-uPI"/>
+                                    <constraint firstAttribute="trailing" secondItem="rYl-OS-U20" secondAttribute="trailing" constant="30" id="gtb-Qo-J1B"/>
+                                    <constraint firstItem="wKs-Wq-gcv" firstAttribute="centerX" secondItem="SIH-EK-sYe" secondAttribute="centerX" id="hPd-vn-GXt"/>
+                                    <constraint firstItem="Lxr-U4-PeI" firstAttribute="top" secondItem="wKs-Wq-gcv" secondAttribute="bottom" constant="30" id="iCa-I2-rmU"/>
+                                    <constraint firstAttribute="height" constant="290" id="iFh-tl-wgE"/>
+                                    <constraint firstAttribute="bottom" secondItem="NvG-Es-7Vq" secondAttribute="bottom" constant="15" id="ogt-ad-g31"/>
+                                    <constraint firstItem="89D-Vb-8nf" firstAttribute="top" secondItem="SIH-EK-sYe" secondAttribute="top" constant="30" id="pW7-Gu-v69"/>
+                                    <constraint firstAttribute="trailing" secondItem="NvG-Es-7Vq" secondAttribute="trailing" constant="30" id="riJ-m3-aCa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lxr-U4-PeI" secondAttribute="trailing" constant="30" id="seo-HN-zb7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="N2m-O4-3tA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SIH-EK-sYe" firstAttribute="centerX" secondItem="aep-xt-ULf" secondAttribute="centerX" id="1Fy-uv-o2x"/>
+                            <constraint firstItem="N2m-O4-3tA" firstAttribute="trailing" secondItem="SIH-EK-sYe" secondAttribute="trailing" constant="40" id="Kms-zd-EbE"/>
+                            <constraint firstItem="SIH-EK-sYe" firstAttribute="centerY" secondItem="aep-xt-ULf" secondAttribute="centerY" id="Xab-jT-2BM"/>
+                            <constraint firstItem="SIH-EK-sYe" firstAttribute="leading" secondItem="N2m-O4-3tA" secondAttribute="leading" constant="40" id="q5w-dl-XPv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertMessage" destination="wKs-Wq-gcv" id="8jj-nj-puX"/>
+                        <outlet property="alertTitle" destination="89D-Vb-8nf" id="htw-ve-auI"/>
+                        <outlet property="alertView" destination="SIH-EK-sYe" id="SaY-rL-77h"/>
+                        <outlet property="dateTextField" destination="Lxr-U4-PeI" id="Md2-7b-kmE"/>
+                        <outlet property="weightTextField" destination="rYl-OS-U20" id="8Ml-gi-D92"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBe-un-cTp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1518" y="-935"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

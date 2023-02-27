@@ -100,6 +100,8 @@ class PersonViewController: UITableViewController {
         
         customIndexPath = indexPath.row
         
+//        self.personArray.remove(at: indexPath.row)
+//        tableView.reloadData()
         
         performSegue(withIdentifier: K.segueGoToExerciseIdentifier, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)

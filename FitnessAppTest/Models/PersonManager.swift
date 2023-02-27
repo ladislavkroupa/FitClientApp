@@ -51,7 +51,7 @@ class PersonManager {
             do {
                 personArray = try decoder.decode([Person].self, from: data)
                 print("Načtení Persons bylo úspěšně.")
-                //addNewExercises(personArray: personArray)
+                addNewExercises(personArray: personArray)
                 self.delegate?.didLoadPersonArray(self, personArray: personArray)
                 
             } catch {
@@ -65,16 +65,26 @@ class PersonManager {
     func addNewExercises(personArray: [Person]) {
         
         var indexPerson = 0
+        var indexExercise = 0
         
         var newExercise: Exercise
-        var maxExerciseIndex = personArray[indexPerson].exercise!.count - 1
+        var maxExerciseIndex = 0
         let maxPersonIndex = personArray.count - 1
+        
+        
+        if personArray.count == 0 {
+            maxExerciseIndex = 0
+        } else {
+            maxExerciseIndex = personArray[indexPerson].exercise!.count - 1
+        }
+        
+        
         
         while indexPerson <= maxPersonIndex{
             
             maxExerciseIndex = personArray[indexPerson].exercise!.count - 1
             
-            var indexExercise = 0
+            indexExercise = 0
             while indexExercise <= maxExerciseIndex {
                 
                 newExercise = personArray[indexPerson].exercise![indexExercise]
