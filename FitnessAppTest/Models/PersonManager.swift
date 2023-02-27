@@ -27,7 +27,7 @@ class PersonManager {
     var exerciseArray = [Exercise]()
     
     
-    func savePersons(from personArray: [Person], tableView: UITableView!) {
+    func savePersons(personArray: [Person], tableView: UITableView!) {
      
         let encoder = PropertyListEncoder()
         
@@ -51,7 +51,7 @@ class PersonManager {
             do {
                 personArray = try decoder.decode([Person].self, from: data)
                 print("Načtení Persons bylo úspěšně.")
-                addNewExercises(personArray: personArray)
+                addNewExercises(from: personArray)
                 self.delegate?.didLoadPersonArray(self, personArray: personArray)
                 
             } catch {
@@ -62,7 +62,7 @@ class PersonManager {
     }
     
     
-    func addNewExercises(personArray: [Person]) {
+    func addNewExercises(from personArray: [Person]) {
         
         var indexPerson = 0
         var indexExercise = 0
@@ -83,14 +83,14 @@ class PersonManager {
         while indexPerson <= maxPersonIndex{
             
             maxExerciseIndex = personArray[indexPerson].exercise!.count - 1
-            
             indexExercise = 0
+            
+
             while indexExercise <= maxExerciseIndex {
                 
                 newExercise = personArray[indexPerson].exercise![indexExercise]
                 
                 exerciseArray.append(newExercise)
-                //self.delegate?.didLoadExerciseArray(self, exerciseArray: exerciseArray)
                 print("PersonalID: \(indexPerson), ExerciseID \(indexExercise) \(newExercise.weight)")
                 indexExercise += 1
                 
