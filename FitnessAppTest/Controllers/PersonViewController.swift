@@ -46,7 +46,7 @@ class PersonViewController: UITableViewController {
                 
                 let newPerson = Person(name: newPersonName, surname: newPersonSurname, age: newPersonAge, exercise: [])
                 self.personArray.append(newPerson)
-                self.personManager.savePersons(personArray: self.personArray, tableView: self.tableView)
+                self.personManager.savePersons(from: self.personArray, tableView: self.tableView)
                 
             }
             

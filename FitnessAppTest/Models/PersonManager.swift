@@ -27,7 +27,7 @@ class PersonManager {
     var exerciseArray = [Exercise]()
     
     
-    func savePersons(personArray: [Person], tableView: UITableView!) {
+    func savePersons(from personArray: [Person], tableView: UITableView!) {
      
         let encoder = PropertyListEncoder()
         

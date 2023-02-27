@@ -86,7 +86,7 @@ extension ExerciseViewController: ExerciseAlertDelegate {
         if let date = dateTextField, let weight = weightTextField {
             let newExercise = Exercise(date: date, weight: weight)
             self.allPersonArray[self.personIndex].exercise?.append(newExercise)
-            self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
+            self.personManager.savePersons(from: self.allPersonArray, tableView: self.tableView)
             
             
         }
