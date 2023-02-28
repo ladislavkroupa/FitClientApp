@@ -17,12 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="xXw-Kn-wiH">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Rnh-gP-DkT" id="n5F-Xn-seT"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personReusableCell" id="IHz-Vf-M13">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personReusableCell" rowHeight="40" id="IHz-Vf-M13">
+                                <rect key="frame" x="0.0" y="94" width="393" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IHz-Vf-M13" id="4eS-Oe-IR6">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -32,7 +40,7 @@
                             <outlet property="delegate" destination="Rnh-gP-DkT" id="Xeb-Qe-STU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Klienti" id="kl0-xP-V6X">
+                    <navigationItem key="navigationItem" title="Clients" id="kl0-xP-V6X">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="tjA-Co-3xp">
                             <connections>
                                 <action selector="addBtnPressed:" destination="Rnh-gP-DkT" id="w0h-kt-fkv"/>
@@ -40,27 +48,50 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToExercise" id="7dU-5K-r6v"/>
+                        <segue destination="uuh-1L-L2O" kind="show" identifier="goToClientDetail" id="iG9-Ku-0O1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTw-mg-hel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1416" y="-137"/>
+            <point key="canvasLocation" x="-1416.030534351145" y="-137.32394366197184"/>
         </scene>
-        <!--ExerSelectionViewController-->
+        <!--ClientDetailViewController-->
         <scene sceneID="rHn-V5-rSE">
             <objects>
-                <viewController title="ExerSelectionViewController" id="uuh-1L-L2O" customClass="ExerSelectionViewController" customModule="FitnessAppTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ClientDetailViewController" id="uuh-1L-L2O" customClass="ClientDetailViewController" customModule="FitnessAppTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="la1-Hm-dzj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="clientName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6K3-jj-rwQ">
+                                <rect key="frame" x="117" y="59" width="159" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nM-an-UBO">
+                                <rect key="frame" x="101" y="113" width="190" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Exercises"/>
+                                <connections>
+                                    <action selector="btnTestPressed:" destination="uuh-1L-L2O" eventType="touchUpInside" id="A4i-91-zj8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wi0-pn-H6w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="RUu-UD-Ktv"/>
+                    <connections>
+                        <outlet property="clientNameLabel" destination="6K3-jj-rwQ" id="Nl3-Pr-6PK"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToExercise" id="Wlj-RJ-4ES"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRA-Wh-idc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500" y="-655"/>
+            <point key="canvasLocation" x="-590.07633587786256" y="-224.64788732394368"/>
         </scene>
         <!--ExerciseViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -137,7 +168,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-U4-PeI">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-U4-PeI">
                                         <rect key="frame" x="30" y="116" width="253" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Uuq-pV-eCY"/>
@@ -177,7 +208,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Váha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYl-OS-U20">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYl-OS-U20">
                                         <rect key="frame" x="30" y="176" width="253" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Wjo-VG-2E4"/>
@@ -185,6 +216,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ded-VT-ryF">
+                                        <rect key="frame" x="30" y="224" width="253" height="14.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
@@ -193,8 +230,10 @@
                                     <constraint firstItem="89D-Vb-8nf" firstAttribute="centerX" secondItem="SIH-EK-sYe" secondAttribute="centerX" id="Jfy-st-wbi"/>
                                     <constraint firstItem="rYl-OS-U20" firstAttribute="centerX" secondItem="SIH-EK-sYe" secondAttribute="centerX" id="MQh-kX-Thq"/>
                                     <constraint firstItem="rYl-OS-U20" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="Qbf-i3-4z9"/>
+                                    <constraint firstItem="Ded-VT-ryF" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="SQS-Hu-UZx"/>
                                     <constraint firstItem="NvG-Es-7Vq" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="ZFt-Hk-vvj"/>
                                     <constraint firstItem="Lxr-U4-PeI" firstAttribute="leading" secondItem="SIH-EK-sYe" secondAttribute="leading" constant="30" id="f6l-4K-uPI"/>
+                                    <constraint firstItem="Ded-VT-ryF" firstAttribute="top" secondItem="rYl-OS-U20" secondAttribute="bottom" constant="8" id="fNl-qI-zBU"/>
                                     <constraint firstAttribute="trailing" secondItem="rYl-OS-U20" secondAttribute="trailing" constant="30" id="gtb-Qo-J1B"/>
                                     <constraint firstItem="wKs-Wq-gcv" firstAttribute="centerX" secondItem="SIH-EK-sYe" secondAttribute="centerX" id="hPd-vn-GXt"/>
                                     <constraint firstItem="Lxr-U4-PeI" firstAttribute="top" secondItem="wKs-Wq-gcv" secondAttribute="bottom" constant="30" id="iCa-I2-rmU"/>
@@ -203,6 +242,7 @@
                                     <constraint firstItem="89D-Vb-8nf" firstAttribute="top" secondItem="SIH-EK-sYe" secondAttribute="top" constant="30" id="pW7-Gu-v69"/>
                                     <constraint firstAttribute="trailing" secondItem="NvG-Es-7Vq" secondAttribute="trailing" constant="30" id="riJ-m3-aCa"/>
                                     <constraint firstAttribute="trailing" secondItem="Lxr-U4-PeI" secondAttribute="trailing" constant="30" id="seo-HN-zb7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ded-VT-ryF" secondAttribute="trailing" constant="30" id="vIM-di-itV"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -220,12 +260,13 @@
                         <outlet property="alertTitle" destination="89D-Vb-8nf" id="htw-ve-auI"/>
                         <outlet property="alertView" destination="SIH-EK-sYe" id="SaY-rL-77h"/>
                         <outlet property="dateTextField" destination="Lxr-U4-PeI" id="Md2-7b-kmE"/>
+                        <outlet property="errorLabel" destination="Ded-VT-ryF" id="F35-os-Zhs"/>
                         <outlet property="weightTextField" destination="rYl-OS-U20" id="8Ml-gi-D92"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBe-un-cTp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1518" y="-935"/>
+            <point key="canvasLocation" x="-1518.3206106870227" y="-935.21126760563379"/>
         </scene>
     </scenes>
     <resources>

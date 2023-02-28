@@ -26,27 +26,19 @@ class ExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         personManager.delegate = self
-        //personManager.addNewExercises(personArray: allPersonArray)
-        
-        
         
         tableView.dataSource = self
         tableView.delegate = self
         
-        
         tableView.register(UINib(nibName: K.exerciseCellNibName, bundle: nil), forCellReuseIdentifier: K.exerciseReusableCellIdentifier)
         
         
-        
-        // Do any additional setup after loading the view.
     }
     
     
     
-        
+    
     @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
         
         let addExerciseAlert = self.storyboard?.instantiateViewController(withIdentifier: "NewExerciseAlertVC") as! NewExerciseAlertVC
@@ -55,8 +47,8 @@ class ExerciseViewController: UIViewController {
         addExerciseAlert.providesPresentationContextTransitionStyle = true
         addExerciseAlert.definesPresentationContext = true
         addExerciseAlert.modalTransitionStyle = .crossDissolve
-        addExerciseAlert.titleString = "Přidat nová data"
-        addExerciseAlert.message = "Uložte si počet opakování"
+        addExerciseAlert.titleString = "Save your's results"
+        addExerciseAlert.message = ""
         
         present(addExerciseAlert, animated: true, completion: nil)
         
@@ -78,20 +70,30 @@ extension ExerciseViewController: PersonManagerDelegate {
     
 }
 
+//MARK: - ExerciseAlertDelegate
 extension ExerciseViewController: ExerciseAlertDelegate {
-    func OkButtonTapped(dateTextField: String?, weightTextField: String?) {
+    
+    func OkButtonTapped(delegate: NewExerciseAlertVC?, dateTextField: String?, weightTextField: String?) {
         self.weightTextField.text = weightTextField
         self.dateTextField.text = dateTextField
         
-        if let date = dateTextField, let weight = weightTextField {
-            let newExercise = Exercise(date: date, weight: weight)
-            self.allPersonArray[self.personIndex].exercise?.append(newExercise)
-            self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
+        if (weightTextField == "" || weightTextField == nil) || (dateTextField == "" || dateTextField == nil)  {
+            delegate?.validationOfTextFields()
+            
+        } else {
+            
+            if let date = dateTextField, let weight = weightTextField {
+                let newExercise = Exercise(date: date, weight: weight)
+                delegate?.errorLabel.text = ""
+                self.allPersonArray[self.personIndex].exercise?.append(newExercise)
+                self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
+                self.dismiss(animated: true, completion: nil)
+            }
             
             
         }
         
-        self.dismiss(animated: true, completion: nil)
+        
         
     }
     
@@ -126,7 +128,7 @@ extension ExerciseViewController: UITableViewDataSource {
         
         return cell
         
-    }
+    } 
     
 }
 
@@ -158,31 +160,31 @@ extension ExerciseViewController: UITableViewDelegate {
   
   let alert = UIAlertController(title: "Přidat nová data", message: "Uložte si počet opakování", preferredStyle: .alert)
   let action = UIAlertAction(title: "Uložit", style: .default) { (action) in
-      
-      if let newExerciseDate = textFieldDate.text {
-          
-          if let newExerciseWeight = textFieldWeight.text {
-              
-              let newExercise = Exercise(date: newExerciseDate, weight: newExerciseWeight)
-              self.allPersonArray[self.personIndex].exercise?.append(newExercise)
-              self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
-              
-          }
-          
-      }
-      
+  
+  if let newExerciseDate = textFieldDate.text {
+  
+  if let newExerciseWeight = textFieldWeight.text {
+  
+  let newExercise = Exercise(date: newExerciseDate, weight: newExerciseWeight)
+  self.allPersonArray[self.personIndex].exercise?.append(newExercise)
+  self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
+  
+  }
+  
+  }
+  
   }
   
   alert.addTextField { (alertTextFieldDate) in
-      alertTextFieldDate.placeholder = "Zadejte datum"
-      textFieldDate = alertTextFieldDate
-      
+  alertTextFieldDate.placeholder = "Zadejte datum"
+  textFieldDate = alertTextFieldDate
+  
   }
   
   alert.addTextField { (alertTextFieldWeight) in
-      alertTextFieldWeight.placeholder = "Zadejte váhu"
-      textFieldWeight = alertTextFieldWeight
-      
+  alertTextFieldWeight.placeholder = "Zadejte váhu"
+  textFieldWeight = alertTextFieldWeight
+  
   }
   
   alert.addAction(action)

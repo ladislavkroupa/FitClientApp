@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 protocol ExerciseAlertDelegate {
-    func OkButtonTapped(dateTextField: String?, weightTextField: String?)
+    func OkButtonTapped(delegate: NewExerciseAlertVC?,dateTextField: String?, weightTextField: String?)
     func CancelButtonTapped()
 }
 
 class NewExerciseAlertVC: UIViewController {
  
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var alertTitle: UILabel!
     @IBOutlet weak var alertMessage: UILabel!
@@ -28,12 +29,14 @@ class NewExerciseAlertVC: UIViewController {
     
     var titleString: String!
     var message: String!
+    var errorString: String!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
         animateView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,9 +70,13 @@ class NewExerciseAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         alertTitle.text = titleString
         alertMessage.text = message
+        errorLabel.text = errorString
+        dateTextField.placeholder = "Date"
+        weightTextField.placeholder = "Weight"
+        
+        weightTextField.isHidden = false
         
     }
     
@@ -79,7 +86,11 @@ class NewExerciseAlertVC: UIViewController {
     
     
     @IBAction func okBtnPressed(_ sender: Any) {
-        delegate?.OkButtonTapped(dateTextField: dateTextField.text, weightTextField: weightTextField.text)
+        delegate?.OkButtonTapped(delegate: self, dateTextField: dateTextField.text, weightTextField: weightTextField.text)
+    }
+    
+    func validationOfTextFields(){
+        self.errorLabel.text = "Field's are empty.!"
     }
     
     

@@ -21,8 +21,10 @@
 		7638E03E29A36BB10021659C /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638E03D29A36BB10021659C /* PersonCell.swift */; };
 		765659FA29A36FC40054FB66 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765659F929A36FC40054FB66 /* PersonCell.xib */; };
 		765659FC29A542860054FB66 /* PersonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765659FB29A542860054FB66 /* PersonManager.swift */; };
-		765659FE29A750280054FB66 /* ExerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765659FD29A750280054FB66 /* ExerSelectionViewController.swift */; };
+		765659FE29A750280054FB66 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765659FD29A750280054FB66 /* ClientDetailViewController.swift */; };
 		76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */; };
+		76E4A54F29ACC4C600CCEF89 /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */; };
+		76E4A55129ACC4E600CCEF89 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +44,10 @@
 		7638E03D29A36BB10021659C /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		765659F929A36FC40054FB66 /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
 		765659FB29A542860054FB66 /* PersonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonManager.swift; sourceTree = "<group>"; };
-		765659FD29A750280054FB66 /* ExerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerSelectionViewController.swift; sourceTree = "<group>"; };
+		765659FD29A750280054FB66 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
 		76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseAlertVC.swift; sourceTree = "<group>"; };
+		76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHeaderCell.swift; sourceTree = "<group>"; };
+		76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +109,7 @@
 			children = (
 				7638E01629A116C70021659C /* ExerciseViewController.swift */,
 				7638E03729A365AD0021659C /* PersonViewController.swift */,
-				765659FD29A750280054FB66 /* ExerSelectionViewController.swift */,
+				765659FD29A750280054FB66 /* ClientDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -124,6 +128,8 @@
 			children = (
 				7638E03D29A36BB10021659C /* PersonCell.swift */,
 				765659F929A36FC40054FB66 /* PersonCell.xib */,
+				76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */,
+				76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				7638E01C29A116CB0021659C /* Assets.xcassets in Resources */,
 				765659FA29A36FC40054FB66 /* PersonCell.xib in Resources */,
 				7638E01A29A116C70021659C /* Main.storyboard in Resources */,
+				76E4A55129ACC4E600CCEF89 /* PersonHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,12 +230,13 @@
 				7638E02A29A1239A0021659C /* ExerciseCell.swift in Sources */,
 				7638E03E29A36BB10021659C /* PersonCell.swift in Sources */,
 				7638E03229A1280C0021659C /* Constants.swift in Sources */,
+				76E4A54F29ACC4C600CCEF89 /* PersonHeaderCell.swift in Sources */,
 				76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */,
 				7638E01329A116C70021659C /* AppDelegate.swift in Sources */,
 				7638E03629A35B620021659C /* Person.swift in Sources */,
 				7638E01529A116C70021659C /* SceneDelegate.swift in Sources */,
 				7638E03829A365AD0021659C /* PersonViewController.swift in Sources */,
-				765659FE29A750280054FB66 /* ExerSelectionViewController.swift in Sources */,
+				765659FE29A750280054FB66 /* ClientDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +391,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,7 +420,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
