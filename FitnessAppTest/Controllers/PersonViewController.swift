@@ -14,7 +14,10 @@ class PersonViewController: UITableViewController {
     
     var textFieldName = UITextField()
     var textFieldSurname = UITextField()
-    var textFieldAge = UITextField()
+    var textFieldDateBirth = UITextField()
+    var textFieldPhone = UITextField()
+    var textFieldEmail = UITextField()
+    
     var personManager = PersonManager()
     var customIndexPath = Int()
     var personArray = [Person]()
@@ -40,11 +43,20 @@ class PersonViewController: UITableViewController {
         let action = UIAlertAction(title: "Uložit", style: .default) { (action) in
             
             //Adding New User
-            if let newPersonName = self.textFieldName.text, let newPersonSurname = self.textFieldSurname.text, let newPersonAge = self.textFieldAge.text {
+            if let newPersonName = self.textFieldName.text, let newPersonSurname = self.textFieldSurname.text, let newPersonDateBirth = self.textFieldDateBirth.text, let newPersonPhone = self.textFieldPhone.text, let newPersonEmail = self.textFieldEmail.text {
                 
-                let newPerson = Person(name: newPersonName, surname: newPersonSurname, age: newPersonAge, exercise: [])
+                let newPerson = Person(context: self.personManager.context)
+                newPerson.name = newPersonName
+                newPerson.surname = newPersonSurname
+                newPerson.dateBirth = Date(timeIntervalSince1970: 1990)
+                newPerson.phone = newPersonPhone
+                newPerson.email = newPersonEmail
+                print("Nová persona přidaná! \(newPerson)")
                 self.personArray.append(newPerson)
-                self.personManager.savePersons(personArray: self.personArray, tableView: self.tableView)
+                self.personManager.savePersons()
+                self.tableView.reloadData()
+                
+                //self.personManager.savePersons(personArray: self.personArray, tableView: self.tableView)
                 
             }
             
@@ -62,12 +74,23 @@ class PersonViewController: UITableViewController {
             
         }
         
-        alert.addTextField { (alertTextFieldAge) in
-            alertTextFieldAge.placeholder = "Věk"
-            self.textFieldAge = alertTextFieldAge
+        alert.addTextField { (newPersonDateBirth) in
+            newPersonDateBirth.placeholder = "Věk"
+            self.textFieldDateBirth = newPersonDateBirth
             
         }
         
+        alert.addTextField { (alertTextFieldPhone) in
+            alertTextFieldPhone.placeholder = "Telefonní číslo"
+            self.textFieldPhone = alertTextFieldPhone
+        }
+        
+        alert.addTextField { (alertTextFieldEmail) in
+            alertTextFieldEmail.placeholder = "E-mailová adresa"
+            self.textFieldEmail = alertTextFieldEmail
+        }
+        
+               
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
@@ -75,15 +98,15 @@ class PersonViewController: UITableViewController {
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == K.segueGoToExerciseIdentifier {
-//            let destinationVC = segue.destination as! ExerciseViewController
-//
-//            destinationVC.allPersonArray = getAllPersons()
-//            destinationVC.personIndex = getPersonIndex()
-//
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == K.segueGoToExerciseIdentifier {
+    //            let destinationVC = segue.destination as! ExerciseViewController
+    //
+    //            destinationVC.allPersonArray = getAllPersons()
+    //            destinationVC.personIndex = getPersonIndex()
+    //
+    //        }
+    //    }
     
     //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,8 +148,9 @@ class PersonViewController: UITableViewController {
         
         cell.nameLabel.text = person.name
         cell.surnameLabel.text = person.surname
-        cell.ageLabel.text = person.age
+        cell.ageLabel.text = person.phone
         
+    
         
         return cell
         
@@ -135,7 +159,7 @@ class PersonViewController: UITableViewController {
     
     //MARK: - HeaderTableView
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       
+        
         let headerView = UIView()
         let headerCell = tableView.dequeueReusableCell(withIdentifier: K.headerPersonReusableCellIdentifier) as! PersonHeaderCell
         
@@ -165,7 +189,7 @@ class PersonViewController: UITableViewController {
         let name = personArray[customIndexPath].name
         let surname = personArray[customIndexPath].surname
         
-        let fullName = "\(name) \(surname)"
+        let fullName = "\(name!) \(surname!)"
         
         return fullName
     }

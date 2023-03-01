@@ -25,6 +25,7 @@
 		76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */; };
 		76E4A54F29ACC4C600CCEF89 /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */; };
 		76E4A55129ACC4E600CCEF89 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */; };
+		76E4A5BB29AFCE1C00CCEF89 /* ClientModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseAlertVC.swift; sourceTree = "<group>"; };
 		76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHeaderCell.swift; sourceTree = "<group>"; };
 		76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
+		76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClientModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				7638E02829A1235A0021659C /* Models */,
 				7638E02629A1232D0021659C /* Views */,
 				7638E02729A123390021659C /* Controllers */,
+				76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */,
 				7638E01B29A116CB0021659C /* Assets.xcassets */,
 				7638E01D29A116CB0021659C /* LaunchScreen.storyboard */,
 				7638E02029A116CB0021659C /* Info.plist */,
@@ -237,6 +240,7 @@
 				7638E01529A116C70021659C /* SceneDelegate.swift in Sources */,
 				7638E03829A365AD0021659C /* PersonViewController.swift in Sources */,
 				765659FE29A750280054FB66 /* ClientDetailViewController.swift in Sources */,
+				76E4A5BB29AFCE1C00CCEF89 /* ClientModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -366,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -456,6 +460,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */,
+			);
+			currentVersion = 76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */;
+			path = ClientModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7638E00729A116C70021659C /* Project object */;
 }

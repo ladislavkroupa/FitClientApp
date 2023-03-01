@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Exercise" representedClassName=".Exercise" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="699318000" usesScalarValueType="NO"/>
+        <attribute name="nameExercise" attributeType="String" defaultValueString=""/>
+        <attribute name="weight" attributeType="String" defaultValueString=""/>
+        <relationship name="parentPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="exercise" inverseEntity="Person"/>
+    </entity>
+    <entity name="Person" representedClassName=".Person" syncable="YES" codeGenerationType="class">
+        <attribute name="dateBirth" attributeType="Date" defaultDateTimeInterval="-342061200" usesScalarValueType="NO"/>
+        <attribute name="email" attributeType="String" minValueString="0" defaultValueString=""/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="phone" attributeType="String" defaultValueString=""/>
+        <attribute name="surname" attributeType="String" defaultValueString=""/>
+        <relationship name="exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentPerson" inverseEntity="Exercise"/>
+    </entity>
+</model>

@@ -27,6 +27,7 @@ class ExerciseViewController: UIViewController {
         super.viewDidLoad()
         
         personManager.delegate = self
+        personManager.delegate?.didLoadPersonArray(personManager, personArray: allPersonArray)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -59,6 +60,7 @@ class ExerciseViewController: UIViewController {
 //MARK: - PersonManagerDelegate
 extension ExerciseViewController: PersonManagerDelegate {
     func didLoadPersonArray(_ personManager: PersonManager, personArray: [Person]) {
+        print("TEST")
         self.allPersonArray = personArray
     }
     
@@ -83,11 +85,11 @@ extension ExerciseViewController: ExerciseAlertDelegate {
         } else {
             
             if let date = dateTextField, let weight = weightTextField {
-                let newExercise = Exercise(date: date, weight: weight)
-                delegate?.errorLabel.text = ""
-                self.allPersonArray[self.personIndex].exercise?.append(newExercise)
-                self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
-                self.dismiss(animated: true, completion: nil)
+//                let newExercise = Exercise(date: date, weight: weight)
+//                delegate?.errorLabel.text = ""
+//                self.allPersonArray[self.personIndex].exercise?.append(newExercise)
+//                self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
+//                self.dismiss(animated: true, completion: nil)
             }
             
             
@@ -118,13 +120,13 @@ extension ExerciseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let person = allPersonArray[personIndex].exercise![indexPath.row]
+        let person = allPersonArray[personIndex]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: K.exerciseReusableCellIdentifier, for: indexPath) as! ExerciseCell
         
         
-        cell.datumLabel.text = person.date
-        cell.vahaLabel.text = person.weight
+//        cell.datumLabel.text = person.date
+//        cell.vahaLabel.text = person.weight
         
         return cell
         

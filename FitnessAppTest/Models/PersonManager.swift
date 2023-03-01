@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 protocol PersonManagerDelegate {
@@ -25,41 +26,33 @@ class PersonManager {
     var index = 0
     var personArray = [Person]()
     var exerciseArray = [Exercise]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let request : NSFetchRequest<Person> = Person.fetchRequest()
     
     
-    func savePersons(personArray: [Person], tableView: UITableView!) {
-     
-        let encoder = PropertyListEncoder()
-        
-        do {
-            let data = try encoder.encode(personArray)
-            try data.write(to: dataFilePath!)
-            tableView.reloadData()
-            print("Zapis byl úspěšny.")
-        } catch {
-            print("Vyskytla se chyba při ukládání dat, detail: \(error)")
-        }
-        
-        
-    }
     
     func loadPersons() {
         
-        if let data = try? Data(contentsOf: dataFilePath!) {
-            let decoder = PropertyListDecoder()
-            
-            do {
-                personArray = try decoder.decode([Person].self, from: data)
-                print("Načtení Persons bylo úspěšně.")
-                addNewExercises(from: personArray)
-                self.delegate?.didLoadPersonArray(self, personArray: personArray)
-                
-            } catch {
-                print("Error decoding item array, \(error)")
-            }
+        do {
+            personArray = try context.fetch(request)
+        } catch {
+            print("Error while loading Persons, detail: \(error)")
         }
         
     }
+    
+    
+    func savePersons() {
+        
+        do {
+            try context.save()
+            print("Saving is complete!")
+        } catch {
+            print("Error while saving Persons \(error)")
+        }
+        
+    }
+    
     
     
     func addNewExercises(from personArray: [Person]) {
@@ -85,17 +78,18 @@ class PersonManager {
             maxExerciseIndex = personArray[indexPerson].exercise!.count - 1
             indexExercise = 0
             
-
+            
             while indexExercise <= maxExerciseIndex {
                 
-                newExercise = personArray[indexPerson].exercise![indexExercise]
                 
-                exerciseArray.append(newExercise)
-                print("PersonalID: \(indexPerson), ExerciseID \(indexExercise) \(newExercise.weight)")
+                
+                //newExercise = personArray[indexPerson].exercise![indexExercise]
+                
+                //exerciseArray.append(newExercise)
+                //print("PersonalID: \(indexPerson), ExerciseID \(indexExercise) \(newExercise.weight)")
                 indexExercise += 1
                 
             }
-            
             
             indexPerson += 1
             
@@ -108,3 +102,47 @@ class PersonManager {
     
     
 }
+
+
+
+/*
+ 
+ 
+ 
+ 
+ func savePersons(personArray: [Person], tableView: UITableView!) {
+ 
+ let encoder = PropertyListEncoder()
+ 
+ do {
+ let data = try encoder.encode(personArray)
+ try data.write(to: dataFilePath!)
+ tableView.reloadData()
+ print("Zapis byl úspěšny.")
+ } catch {
+ print("Vyskytla se chyba při ukládání dat, detail: \(error)")
+ }
+ 
+ 
+ }
+ 
+ func loadPersons() {
+ 
+ if let data = try? Data(contentsOf: dataFilePath!) {
+ let decoder = PropertyListDecoder()
+ 
+ do {
+ personArray = try decoder.decode([Person].self, from: data)
+ print("Načtení Persons bylo úspěšně.")
+ addNewExercises(from: personArray)
+ self.delegate?.didLoadPersonArray(self, personArray: personArray)
+ 
+ } catch {
+ print("Error decoding item array, \(error)")
+ }
+ }
+ 
+ }
+ 
+ 
+ */

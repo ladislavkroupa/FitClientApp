@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/*
 class Person: Codable {
     
     var name: String
@@ -43,3 +43,5 @@ class Exercise: Codable {
     
     
 }
+
+*/
