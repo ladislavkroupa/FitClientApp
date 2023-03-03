@@ -6,28 +6,34 @@
 //
 
 import UIKit
+import CoreData
 
 class ExerciseViewController: UIViewController {
     
-    var personIndex = Int()
-    var allPersonArray = [Person]()
+    var customIndexPath = Int()
+    var exerciseArray = [Exercise]()
+    
+    var selectedPerson: Person?
+    
     @IBOutlet weak var tableView: UITableView!
     
-    
-    var personManager = PersonManager()
+    var exerciseManager = ExerciseManager()
     var exerciseAlertViewManager = NewExerciseAlertVC()
     
+    
+    var nameExerciseTextField = UITextField()
     var dateTextField = UITextField()
     var weightTextField = UITextField()
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
-    //var test = allPersonArray[personIndex].exercise
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        personManager.delegate = self
-        personManager.delegate?.didLoadPersonArray(personManager, personArray: allPersonArray)
+        exerciseManager.delegate = self
+        
+        exerciseManager.loadExercises(for: selectedPerson)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -55,20 +61,19 @@ class ExerciseViewController: UIViewController {
         
     }
     
+    
 }
 
-//MARK: - PersonManagerDelegate
-extension ExerciseViewController: PersonManagerDelegate {
-    func didLoadPersonArray(_ personManager: PersonManager, personArray: [Person]) {
-        print("TEST")
-        self.allPersonArray = personArray
+//MARK: - ExerciseManagerDelegate
+extension ExerciseViewController: ExerciseManagerDelegate {
+    
+    func didLoadExercise(_ exerciseManager: ExerciseManager, exerciseArray: [Exercise]) {
+        self.exerciseArray = exerciseArray
     }
     
     func didFailWithError(error: Error) {
-        print("Did load with Error")
+        print("End up with error: \(error)")
     }
-    
-    
     
 }
 
@@ -85,11 +90,22 @@ extension ExerciseViewController: ExerciseAlertDelegate {
         } else {
             
             if let date = dateTextField, let weight = weightTextField {
-//                let newExercise = Exercise(date: date, weight: weight)
-//                delegate?.errorLabel.text = ""
-//                self.allPersonArray[self.personIndex].exercise?.append(newExercise)
-//                self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
-//                self.dismiss(animated: true, completion: nil)
+                
+                let newExercise = Exercise(context: self.context)
+                newExercise.date = Date(timeIntervalSinceNow: 10)
+                newExercise.weight = weight
+                newExercise.nameExercise = "New"
+                newExercise.parentPerson = selectedPerson
+                
+                
+                self.exerciseArray.append(newExercise)
+                self.exerciseManager.saveExercises()
+                
+                
+                delegate?.errorLabel.text = ""
+                print(newExercise)
+                self.tableView.reloadData()
+                self.dismiss(animated: true, completion: nil)
             }
             
             
@@ -99,7 +115,6 @@ extension ExerciseViewController: ExerciseAlertDelegate {
         
     }
     
-    
     func CancelButtonTapped() {
         self.dismiss(animated: true,completion: nil)
     }
@@ -108,25 +123,23 @@ extension ExerciseViewController: ExerciseAlertDelegate {
 }
 
 
-
 //MARK: - TableViewDeleagate
 extension ExerciseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allPersonArray[personIndex].exercise!.count
+        return exerciseArray.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        let person = allPersonArray[personIndex]
-        
+        let exercise = exerciseArray[indexPath.row]
+ 
         let cell = tableView.dequeueReusableCell(withIdentifier: K.exerciseReusableCellIdentifier, for: indexPath) as! ExerciseCell
         
         
-//        cell.datumLabel.text = person.date
-//        cell.vahaLabel.text = person.weight
+        cell.datumLabel.text = exercise.nameExercise
+        cell.vahaLabel.text = exercise.weight
         
         return cell
         
@@ -145,53 +158,7 @@ extension ExerciseViewController: UITableViewDelegate {
         
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
         tableView.reloadData()
+        
     }
 }
-
-
-
-
-
-/*
- Vytvoření UIAlertViewControlleru a zobrazení dialogu s okem o přidání nových dat. Patří do třídy BTN CLICKED
- /*
-  var textFieldDate = UITextField()
-  var textFieldWeight = UITextField()
-  
-  let alert = UIAlertController(title: "Přidat nová data", message: "Uložte si počet opakování", preferredStyle: .alert)
-  let action = UIAlertAction(title: "Uložit", style: .default) { (action) in
-  
-  if let newExerciseDate = textFieldDate.text {
-  
-  if let newExerciseWeight = textFieldWeight.text {
-  
-  let newExercise = Exercise(date: newExerciseDate, weight: newExerciseWeight)
-  self.allPersonArray[self.personIndex].exercise?.append(newExercise)
-  self.personManager.savePersons(personArray: self.allPersonArray, tableView: self.tableView)
-  
-  }
-  
-  }
-  
-  }
-  
-  alert.addTextField { (alertTextFieldDate) in
-  alertTextFieldDate.placeholder = "Zadejte datum"
-  textFieldDate = alertTextFieldDate
-  
-  }
-  
-  alert.addTextField { (alertTextFieldWeight) in
-  alertTextFieldWeight.placeholder = "Zadejte váhu"
-  textFieldWeight = alertTextFieldWeight
-  
-  }
-  
-  alert.addAction(action)
-  present(alert, animated: true, completion: nil)
-  */
- 
- 
- */

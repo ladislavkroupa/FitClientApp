@@ -12,8 +12,18 @@ import CoreData
 class ClientDetailViewController: UIViewController {
     
     @IBOutlet weak var clientNameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    
+    @IBOutlet weak var dateBirthLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    
     
     var clientName = String()
+    var clientPhone = String()
+    var clientEmail = String()
+    var clientDateBirth = String()
+    
     var allPersonArray = [Person]()
     var customIndexPath = Int()
     var personManager = PersonManager()
@@ -23,7 +33,12 @@ class ClientDetailViewController: UIViewController {
         super.viewDidLoad()
         
         personManager.delegate = self
+        
+        
         clientNameLabel.text = clientName
+        phoneLabel.text = clientPhone
+        emailLabel.text = clientEmail
+        dateBirthLabel.text = clientDateBirth
         
         
         
@@ -37,9 +52,9 @@ class ClientDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segueGoToExerciseIdentifier {
             let destinationVC = segue.destination as! ExerciseViewController
-            
-            destinationVC.allPersonArray = allPersonArray
-            destinationVC.personIndex = customIndexPath
+           
+            destinationVC.selectedPerson = allPersonArray[customIndexPath]
+            destinationVC.customIndexPath = customIndexPath
             
         }
     }

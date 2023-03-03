@@ -22,6 +22,8 @@ class PersonViewController: UITableViewController {
     var customIndexPath = Int()
     var personArray = [Person]()
     
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    
     
     
     override func viewDidLoad() {
@@ -29,6 +31,8 @@ class PersonViewController: UITableViewController {
         
         personManager.delegate = self
         personManager.loadPersons()
+        
+        print(dataFilePath)
         
         tableView.register(UINib(nibName: K.personCellNibName, bundle: nil), forCellReuseIdentifier: K.personReusableCellIdentifier)
         tableView.register(UINib(nibName: K.personHeaderNibName, bundle: nil), forCellReuseIdentifier: K.headerPersonReusableCellIdentifier)
@@ -48,10 +52,11 @@ class PersonViewController: UITableViewController {
                 let newPerson = Person(context: self.personManager.context)
                 newPerson.name = newPersonName
                 newPerson.surname = newPersonSurname
-                newPerson.dateBirth = Date(timeIntervalSince1970: 1990)
+                newPerson.dateBirth = Date(timeIntervalSinceNow: 1)
                 newPerson.phone = newPersonPhone
                 newPerson.email = newPersonEmail
                 print("Nová persona přidaná! \(newPerson)")
+                
                 self.personArray.append(newPerson)
                 self.personManager.savePersons()
                 self.tableView.reloadData()
@@ -90,7 +95,7 @@ class PersonViewController: UITableViewController {
             self.textFieldEmail = alertTextFieldEmail
         }
         
-               
+        
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
@@ -98,15 +103,6 @@ class PersonViewController: UITableViewController {
         
     }
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == K.segueGoToExerciseIdentifier {
-    //            let destinationVC = segue.destination as! ExerciseViewController
-    //
-    //            destinationVC.allPersonArray = getAllPersons()
-    //            destinationVC.personIndex = getPersonIndex()
-    //
-    //        }
-    //    }
     
     //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,6 +112,9 @@ class PersonViewController: UITableViewController {
             destinationVC.clientName = getClientName()
             destinationVC.allPersonArray = getAllPersons()
             destinationVC.customIndexPath = getPersonIndex()
+            destinationVC.clientDateBirth = getClientDateBirth()
+            destinationVC.clientPhone = getClientPhone()
+            destinationVC.clientEmail = getClientEmail()
         }
         
         
@@ -150,7 +149,7 @@ class PersonViewController: UITableViewController {
         cell.surnameLabel.text = person.surname
         cell.ageLabel.text = person.phone
         
-    
+        
         
         return cell
         
@@ -190,8 +189,22 @@ class PersonViewController: UITableViewController {
         let surname = personArray[customIndexPath].surname
         
         let fullName = "\(name!) \(surname!)"
-        
         return fullName
+    }
+    
+    func getClientDateBirth() -> String {
+        let dateBirth = personArray[customIndexPath].dateBirth
+        return "\(dateBirth!)"
+    }
+    
+    func getClientPhone() -> String {
+        let phone = personArray[customIndexPath].phone
+        return phone!
+    }
+    
+    func getClientEmail() -> String {
+        let email = personArray[customIndexPath].email
+        return email!
     }
     
 }

@@ -26,6 +26,7 @@
 		76E4A54F29ACC4C600CCEF89 /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */; };
 		76E4A55129ACC4E600CCEF89 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */; };
 		76E4A5BB29AFCE1C00CCEF89 /* ClientModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */; };
+		76E4A5BD29B0E3F300CCEF89 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5BC29B0E3F300CCEF89 /* ExerciseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonHeaderCell.swift; sourceTree = "<group>"; };
 		76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
 		76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClientModel.xcdatamodel; sourceTree = "<group>"; };
+		76E4A5BC29B0E3F300CCEF89 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				7638E03529A35B620021659C /* Person.swift */,
 				765659FB29A542860054FB66 /* PersonManager.swift */,
+				76E4A5BC29B0E3F300CCEF89 /* ExerciseManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7638E01729A116C70021659C /* ExerciseViewController.swift in Sources */,
+				76E4A5BD29B0E3F300CCEF89 /* ExerciseManager.swift in Sources */,
 				765659FC29A542860054FB66 /* PersonManager.swift in Sources */,
 				7638E02A29A1239A0021659C /* ExerciseCell.swift in Sources */,
 				7638E03E29A36BB10021659C /* PersonCell.swift in Sources */,

@@ -35,6 +35,8 @@ class PersonManager {
         
         do {
             personArray = try context.fetch(request)
+            delegate?.didLoadPersonArray(self, personArray: personArray)
+            print("Lodaing is complete!")
         } catch {
             print("Error while loading Persons, detail: \(error)")
         }
@@ -53,8 +55,10 @@ class PersonManager {
         
     }
     
+}
     
     
+    /*
     func addNewExercises(from personArray: [Person]) {
         
         var indexPerson = 0
@@ -105,7 +109,7 @@ class PersonManager {
 
 
 
-/*
+
  
  
  
