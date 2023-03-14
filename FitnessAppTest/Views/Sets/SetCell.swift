@@ -1,22 +1,22 @@
 //
-//  Exercise.swift
+//  SetCell.swift
 //  FitnessAppTest
 //
-//  Created by Ladislav Kroupa on 18.02.2023.
+//  Created by Ladislav Kroupa on 05.03.2023.
 //
 
 import Foundation
 import UIKit
 
 
-class ExerciseCell: UITableViewCell {
+
+class SetCell: UITableViewCell {
     
-   
-    @IBOutlet weak var nameExerciseLabel: UILabel!
-    @IBOutlet weak var datumLabel: UILabel!
     
+    @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBOutlet weak var weightLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,6 +33,5 @@ class ExerciseCell: UITableViewCell {
     }
     
     
+    
 }
-    
-    

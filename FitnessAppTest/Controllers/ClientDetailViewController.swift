@@ -19,6 +19,17 @@ class ClientDetailViewController: UIViewController {
     
     
     
+    
+    @IBAction func setsBtnPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: K.segueGoToSetsIdentifier, sender: self)
+        
+        
+    }
+    
+    var personVC = PersonViewController()
+    
+    
     var clientName = String()
     var clientPhone = String()
     var clientEmail = String()
@@ -40,23 +51,51 @@ class ClientDetailViewController: UIViewController {
         emailLabel.text = clientEmail
         dateBirthLabel.text = clientDateBirth
         
+        print(allPersonArray)
+        
         
         
     }
     
+    
     @IBAction func btnTestPressed(_ sender: Any) {
-        performSegue(withIdentifier: K.segueGoToExerciseIdentifier, sender: self)
+        performSegue(withIdentifier: K.segueGoToSessionIdentifier, sender: self)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segueGoToExerciseIdentifier {
-            let destinationVC = segue.destination as! ExerciseViewController
-           
-            destinationVC.selectedPerson = allPersonArray[customIndexPath]
-            destinationVC.customIndexPath = customIndexPath
+        
+        if segue.identifier == K.segueGoToSessionIdentifier {
+            let sessionVC = segue.destination as! SessionViewController
             
+            sessionVC.customIndexPath = customIndexPath
+            sessionVC.selectedPerson = allPersonArray[customIndexPath]
         }
+        
+        
+        /*
+         if segue.identifier == K.segueGoToExerciseIdentifier {
+             let destinationVC = segue.destination as! ExerciseViewController
+            
+             destinationVC.selectedPerson = allPersonArray[customIndexPath]
+             destinationVC.customIndexPath = customIndexPath
+             
+         }
+         */
+        
+    }
+    
+    @IBAction func deleteClientBtnPressed(_ sender: UIButton) {
+        
+        
+        let personToDelete = allPersonArray[customIndexPath]
+        
+        personManager.context.delete(personToDelete)
+        allPersonArray.remove(at: customIndexPath)
+        personManager.savePersons()
+        print(allPersonArray)
+        navigationController?.popToRootViewController(animated: true)
+        
     }
     
     

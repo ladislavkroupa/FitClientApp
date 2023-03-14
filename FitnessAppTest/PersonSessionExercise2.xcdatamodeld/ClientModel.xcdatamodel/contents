@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Exercise" representedClassName=".Exercise" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="699318000" usesScalarValueType="NO"/>
+        <attribute name="idExercise" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nameExercise" attributeType="String" defaultValueString=""/>
+        <attribute name="totalScore" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="parentSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="exercise" inverseEntity="Session"/>
+        <relationship name="set" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sets" inverseName="parentExercise" inverseEntity="Sets"/>
+    </entity>
+    <entity name="Person" representedClassName=".Person" syncable="YES" codeGenerationType="class">
+        <attribute name="dateBirth" attributeType="Date" defaultDateTimeInterval="-342061200" usesScalarValueType="NO"/>
+        <attribute name="email" attributeType="String" minValueString="0" defaultValueString=""/>
+        <attribute name="idPerson" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="phone" attributeType="String" defaultValueString=""/>
+        <attribute name="surname" attributeType="String" defaultValueString=""/>
+        <relationship name="session" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="parentPerson" inverseEntity="Session"/>
+    </entity>
+    <entity name="Session" representedClassName=".Session" syncable="YES" codeGenerationType="class">
+        <attribute name="dateSession" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="idSession" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nameSession" attributeType="String" defaultValueString=""/>
+        <relationship name="exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentSession" inverseEntity="Exercise"/>
+        <relationship name="parentPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="session" inverseEntity="Person"/>
+    </entity>
+    <entity name="Sets" representedClassName="Sets" syncable="YES" codeGenerationType="class">
+        <attribute name="idSet" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nameSet" attributeType="String" defaultValueString=""/>
+        <attribute name="repsSet" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="scoreSet" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weightSet" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="parentExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="set" inverseEntity="Exercise"/>
+    </entity>
+</model>

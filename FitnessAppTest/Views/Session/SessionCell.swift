@@ -1,21 +1,22 @@
 //
-//  Exercise.swift
+//  SessionCell.swift
 //  FitnessAppTest
 //
-//  Created by Ladislav Kroupa on 18.02.2023.
+//  Created by Ladislav Kroupa on 05.03.2023.
 //
 
 import Foundation
 import UIKit
 
 
-class ExerciseCell: UITableViewCell {
+class SessionCell: UITableViewCell {
     
-   
-    @IBOutlet weak var nameExerciseLabel: UILabel!
-    @IBOutlet weak var datumLabel: UILabel!
     
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var dateSessionLabel: UILabel!
+    
+    @IBOutlet weak var nameSessionLabel: UILabel!
+    
+    @IBOutlet weak var scoreSessionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +33,4 @@ class ExerciseCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
 }
-    
-    

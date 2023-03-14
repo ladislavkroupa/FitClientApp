@@ -37,15 +37,17 @@ class ExerciseManager {
         
     }
     
-    func loadExercises(_ request: NSFetchRequest<Exercise> = Exercise.fetchRequest(),for selectedPerson: Person?) {
+    
+    func loadExercises(_ request: NSFetchRequest<Exercise> = Exercise.fetchRequest(),for selectedSession: Session?) {
         
-        let personPredicate = NSPredicate(format: "parentPerson.name MATCHES %@", selectedPerson!.name!)
+        let sessionPredicate = NSPredicate(format: "parentSession.nameSession MATCHES %@", selectedSession!.nameSession!)
         
-        request.predicate = personPredicate
+        request.predicate = sessionPredicate
         
         do {
             exerciseArray = try context.fetch(request)
             self.delegate?.didLoadExercise(self, exerciseArray: exerciseArray)
+            print("Loading Exercise is complete!")
         } catch {
             print("End with error: \(error)")
         }

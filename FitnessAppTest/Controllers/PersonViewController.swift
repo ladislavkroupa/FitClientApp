@@ -34,8 +34,18 @@ class PersonViewController: UITableViewController {
         
         print(dataFilePath)
         
+        
+        
         tableView.register(UINib(nibName: K.personCellNibName, bundle: nil), forCellReuseIdentifier: K.personReusableCellIdentifier)
         tableView.register(UINib(nibName: K.personHeaderNibName, bundle: nil), forCellReuseIdentifier: K.headerPersonReusableCellIdentifier)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        tableView.reloadData()
+        
     }
     
     
@@ -52,7 +62,7 @@ class PersonViewController: UITableViewController {
                 let newPerson = Person(context: self.personManager.context)
                 newPerson.name = newPersonName
                 newPerson.surname = newPersonSurname
-                newPerson.dateBirth = Date(timeIntervalSinceNow: 1)
+                newPerson.dateBirth = Date(timeIntervalSinceReferenceDate: -123456789.0)
                 newPerson.phone = newPersonPhone
                 newPerson.email = newPersonEmail
                 print("Nová persona přidaná! \(newPerson)")
@@ -61,7 +71,6 @@ class PersonViewController: UITableViewController {
                 self.personManager.savePersons()
                 self.tableView.reloadData()
                 
-                //self.personManager.savePersons(personArray: self.personArray, tableView: self.tableView)
                 
             }
             
@@ -147,7 +156,7 @@ class PersonViewController: UITableViewController {
         
         cell.nameLabel.text = person.name
         cell.surnameLabel.text = person.surname
-        cell.ageLabel.text = person.phone
+        cell.ageLabel.text = getClientAge(from: person.dateBirth)
         
         
         
@@ -193,8 +202,15 @@ class PersonViewController: UITableViewController {
     }
     
     func getClientDateBirth() -> String {
+        
         let dateBirth = personArray[customIndexPath].dateBirth
-        return "\(dateBirth!)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let resultDateBirth = dateFormatter.string(from: dateBirth!)
+        
+        return resultDateBirth
+        
+        
     }
     
     func getClientPhone() -> String {
@@ -205,6 +221,24 @@ class PersonViewController: UITableViewController {
     func getClientEmail() -> String {
         let email = personArray[customIndexPath].email
         return email!
+    }
+    
+    func getClientAge(from birthDay: Date?) -> String {
+        
+        if let birthDayPerson = birthDay {
+            
+            let now = Date()
+            let calendar = Calendar.current
+
+            let ageComponents = calendar.dateComponents([.year], from: birthDayPerson, to: now)
+            let age = ageComponents.year!
+            
+            return "\(age)"
+        } else {
+            
+            return ""
+        }
+        
     }
     
 }
@@ -224,51 +258,3 @@ extension PersonViewController: PersonManagerDelegate {
     
 }
 
-
-
-
-
-
-
-/*
- Header pro tableView
- 
- override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
- let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
- 
- let label = UILabel()
- label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
- label.text = "Jméno"
- label.font = .systemFont(ofSize: 16)
- label.textColor = .black
- label.textAlignment = .left
- 
- let label3 = UILabel()
- label3.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
- label3.text = "Přijmení"
- label3.font = .systemFont(ofSize: 16)
- label3.textColor = .black
- label3.textAlignment = .center
- 
- 
- let label2 = UILabel()
- label2.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
- 
- label2.text = "Věk"
- label2.font = .systemFont(ofSize: 16)
- label2.textColor = .black
- label2.textAlignment = .right
- 
- headerView.addSubview(label)
- headerView.addSubview(label2)
- headerView.addSubview(label3)
- 
- return headerView
- }
- 
- override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
- return 50
- }
- 
- 
- */

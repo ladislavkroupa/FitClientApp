@@ -16,7 +16,6 @@
 		7638E02A29A1239A0021659C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638E02929A1239A0021659C /* ExerciseCell.swift */; };
 		7638E03029A125440021659C /* ExerciseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7638E02F29A125440021659C /* ExerciseCell.xib */; };
 		7638E03229A1280C0021659C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638E03129A1280C0021659C /* Constants.swift */; };
-		7638E03629A35B620021659C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638E03529A35B620021659C /* Person.swift */; };
 		7638E03829A365AD0021659C /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638E03729A365AD0021659C /* PersonViewController.swift */; };
 		7638E03E29A36BB10021659C /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638E03D29A36BB10021659C /* PersonCell.swift */; };
 		765659FA29A36FC40054FB66 /* PersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765659F929A36FC40054FB66 /* PersonCell.xib */; };
@@ -25,8 +24,17 @@
 		76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76565A0329A7ABE60054FB66 /* NewExerciseAlertVC.swift */; };
 		76E4A54F29ACC4C600CCEF89 /* PersonHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A54E29ACC4C500CCEF89 /* PersonHeaderCell.swift */; };
 		76E4A55129ACC4E600CCEF89 /* PersonHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */; };
-		76E4A5BB29AFCE1C00CCEF89 /* ClientModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */; };
+		76E4A5BB29AFCE1C00CCEF89 /* PersonSessionExercise2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5B929AFCE1C00CCEF89 /* PersonSessionExercise2.xcdatamodeld */; };
 		76E4A5BD29B0E3F300CCEF89 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5BC29B0E3F300CCEF89 /* ExerciseManager.swift */; };
+		76E4A5C029B22F5400CCEF89 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76E4A5BF29B22F5400CCEF89 /* IQKeyboardManagerSwift */; };
+		76E4A5EA29B4D1C800CCEF89 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5E929B4D1C800CCEF89 /* SessionViewController.swift */; };
+		76E4A5ED29B4D34900CCEF89 /* SessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E4A5EC29B4D34900CCEF89 /* SessionCell.xib */; };
+		76E4A5EF29B4D4E900CCEF89 /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5EE29B4D4E900CCEF89 /* SessionCell.swift */; };
+		76E4A5F129B4DC3D00CCEF89 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5F029B4DC3D00CCEF89 /* SessionManager.swift */; };
+		76E4A5F329B4FEE900CCEF89 /* SetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5F229B4FEE900CCEF89 /* SetsManager.swift */; };
+		76E4A5F629B5013500CCEF89 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76E4A5F529B5013500CCEF89 /* SetCell.xib */; };
+		76E4A5F829B5013F00CCEF89 /* SetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5F729B5013E00CCEF89 /* SetCell.swift */; };
+		76E4A5FA29B52AF900CCEF89 /* SetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4A5F929B52AF900CCEF89 /* SetsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +49,6 @@
 		7638E02929A1239A0021659C /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		7638E02F29A125440021659C /* ExerciseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCell.xib; sourceTree = "<group>"; };
 		7638E03129A1280C0021659C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7638E03529A35B620021659C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		7638E03729A365AD0021659C /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		7638E03D29A36BB10021659C /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		765659F929A36FC40054FB66 /* PersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonCell.xib; sourceTree = "<group>"; };
@@ -52,6 +59,14 @@
 		76E4A55029ACC4E600CCEF89 /* PersonHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonHeaderCell.xib; sourceTree = "<group>"; };
 		76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClientModel.xcdatamodel; sourceTree = "<group>"; };
 		76E4A5BC29B0E3F300CCEF89 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
+		76E4A5E929B4D1C800CCEF89 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		76E4A5EC29B4D34900CCEF89 /* SessionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionCell.xib; sourceTree = "<group>"; };
+		76E4A5EE29B4D4E900CCEF89 /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
+		76E4A5F029B4DC3D00CCEF89 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		76E4A5F229B4FEE900CCEF89 /* SetsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsManager.swift; sourceTree = "<group>"; };
+		76E4A5F529B5013500CCEF89 /* SetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
+		76E4A5F729B5013E00CCEF89 /* SetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCell.swift; sourceTree = "<group>"; };
+		76E4A5F929B52AF900CCEF89 /* SetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E4A5C029B22F5400CCEF89 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +105,7 @@
 				7638E02829A1235A0021659C /* Models */,
 				7638E02629A1232D0021659C /* Views */,
 				7638E02729A123390021659C /* Controllers */,
-				76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */,
+				76E4A5B929AFCE1C00CCEF89 /* PersonSessionExercise2.xcdatamodeld */,
 				7638E01B29A116CB0021659C /* Assets.xcassets */,
 				7638E01D29A116CB0021659C /* LaunchScreen.storyboard */,
 				7638E02029A116CB0021659C /* Info.plist */,
@@ -101,6 +117,8 @@
 		7638E02629A1232D0021659C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				76E4A5F429B5011E00CCEF89 /* Sets */,
+				76E4A5EB29B4D32C00CCEF89 /* Session */,
 				76565A0029A7AA9F0054FB66 /* AlertViewController */,
 				765659F829A36D8E0054FB66 /* Person */,
 				765659FF29A7AA950054FB66 /* Exercise */,
@@ -115,6 +133,8 @@
 				7638E01629A116C70021659C /* ExerciseViewController.swift */,
 				7638E03729A365AD0021659C /* PersonViewController.swift */,
 				765659FD29A750280054FB66 /* ClientDetailViewController.swift */,
+				76E4A5E929B4D1C800CCEF89 /* SessionViewController.swift */,
+				76E4A5F929B52AF900CCEF89 /* SetsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -122,9 +142,10 @@
 		7638E02829A1235A0021659C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7638E03529A35B620021659C /* Person.swift */,
 				765659FB29A542860054FB66 /* PersonManager.swift */,
 				76E4A5BC29B0E3F300CCEF89 /* ExerciseManager.swift */,
+				76E4A5F029B4DC3D00CCEF89 /* SessionManager.swift */,
+				76E4A5F229B4FEE900CCEF89 /* SetsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +178,24 @@
 			path = AlertViewController;
 			sourceTree = "<group>";
 		};
+		76E4A5EB29B4D32C00CCEF89 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				76E4A5EC29B4D34900CCEF89 /* SessionCell.xib */,
+				76E4A5EE29B4D4E900CCEF89 /* SessionCell.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		76E4A5F429B5011E00CCEF89 /* Sets */ = {
+			isa = PBXGroup;
+			children = (
+				76E4A5F529B5013500CCEF89 /* SetCell.xib */,
+				76E4A5F729B5013E00CCEF89 /* SetCell.swift */,
+			);
+			path = Sets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,6 +212,9 @@
 			dependencies = (
 			);
 			name = FitnessAppTest;
+			packageProductDependencies = (
+				76E4A5BF29B22F5400CCEF89 /* IQKeyboardManagerSwift */,
+			);
 			productName = FitnessAppTest;
 			productReference = 7638E00F29A116C70021659C /* FitnessAppTest.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +243,9 @@
 				Base,
 			);
 			mainGroup = 7638E00629A116C70021659C;
+			packageReferences = (
+				76E4A5BE29B22F5400CCEF89 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 7638E01029A116C70021659C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,9 +260,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E4A5F629B5013500CCEF89 /* SetCell.xib in Resources */,
 				7638E01F29A116CB0021659C /* LaunchScreen.storyboard in Resources */,
 				7638E03029A125440021659C /* ExerciseCell.xib in Resources */,
 				7638E01C29A116CB0021659C /* Assets.xcassets in Resources */,
+				76E4A5ED29B4D34900CCEF89 /* SessionCell.xib in Resources */,
 				765659FA29A36FC40054FB66 /* PersonCell.xib in Resources */,
 				7638E01A29A116C70021659C /* Main.storyboard in Resources */,
 				76E4A55129ACC4E600CCEF89 /* PersonHeaderCell.xib in Resources */,
@@ -231,20 +278,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E4A5EF29B4D4E900CCEF89 /* SessionCell.swift in Sources */,
 				7638E01729A116C70021659C /* ExerciseViewController.swift in Sources */,
 				76E4A5BD29B0E3F300CCEF89 /* ExerciseManager.swift in Sources */,
 				765659FC29A542860054FB66 /* PersonManager.swift in Sources */,
+				76E4A5EA29B4D1C800CCEF89 /* SessionViewController.swift in Sources */,
 				7638E02A29A1239A0021659C /* ExerciseCell.swift in Sources */,
 				7638E03E29A36BB10021659C /* PersonCell.swift in Sources */,
 				7638E03229A1280C0021659C /* Constants.swift in Sources */,
+				76E4A5F829B5013F00CCEF89 /* SetCell.swift in Sources */,
 				76E4A54F29ACC4C600CCEF89 /* PersonHeaderCell.swift in Sources */,
 				76565A0429A7ABE60054FB66 /* NewExerciseAlertVC.swift in Sources */,
 				7638E01329A116C70021659C /* AppDelegate.swift in Sources */,
-				7638E03629A35B620021659C /* Person.swift in Sources */,
 				7638E01529A116C70021659C /* SceneDelegate.swift in Sources */,
 				7638E03829A365AD0021659C /* PersonViewController.swift in Sources */,
 				765659FE29A750280054FB66 /* ClientDetailViewController.swift in Sources */,
-				76E4A5BB29AFCE1C00CCEF89 /* ClientModel.xcdatamodeld in Sources */,
+				76E4A5FA29B52AF900CCEF89 /* SetsViewController.swift in Sources */,
+				76E4A5F129B4DC3D00CCEF89 /* SessionManager.swift in Sources */,
+				76E4A5BB29AFCE1C00CCEF89 /* PersonSessionExercise2.xcdatamodeld in Sources */,
+				76E4A5F329B4FEE900CCEF89 /* SetsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,14 +517,33 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		76E4A5BE29B22F5400CCEF89 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		76E4A5BF29B22F5400CCEF89 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76E4A5BE29B22F5400CCEF89 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
-		76E4A5B929AFCE1C00CCEF89 /* ClientModel.xcdatamodeld */ = {
+		76E4A5B929AFCE1C00CCEF89 /* PersonSessionExercise2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */,
 			);
 			currentVersion = 76E4A5BA29AFCE1C00CCEF89 /* ClientModel.xcdatamodel */;
-			path = ClientModel.xcdatamodeld;
+			path = PersonSessionExercise2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

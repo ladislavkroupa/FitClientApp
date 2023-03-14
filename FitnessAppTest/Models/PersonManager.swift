@@ -25,7 +25,6 @@ class PersonManager {
     var delegate: PersonManagerDelegate?
     var index = 0
     var personArray = [Person]()
-    var exerciseArray = [Exercise]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let request : NSFetchRequest<Person> = Person.fetchRequest()
     

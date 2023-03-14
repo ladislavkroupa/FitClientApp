@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ExerciseAlertDelegate {
-    func OkButtonTapped(delegate: NewExerciseAlertVC?,dateTextField: String?, weightTextField: String?)
+    func OkButtonTapped(delegate: NewExerciseAlertVC?, nameTextField: String?, weightTextField: String?, dateExercisePicker: Date?, repsExerciseTextField: Int32?)
     func CancelButtonTapped()
 }
 
@@ -19,8 +19,12 @@ class NewExerciseAlertVC: UIViewController {
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var alertTitle: UILabel!
     @IBOutlet weak var alertMessage: UILabel!
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var repsExerciseTextField: UITextField!
+    
+    @IBOutlet weak var dateExercisePicker: UIDatePicker!
+    
     
     let alertViewGrayColor = UIColor(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, alpha: 1)
     
@@ -41,7 +45,7 @@ class NewExerciseAlertVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //Zajištění focusu na dateTextField při otevření okna.
-        dateTextField.becomeFirstResponder()
+        nameTextField.becomeFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,10 +77,13 @@ class NewExerciseAlertVC: UIViewController {
         alertTitle.text = titleString
         alertMessage.text = message
         errorLabel.text = errorString
-        dateTextField.placeholder = "Date"
+        nameTextField.placeholder = "Exercise Name"
         weightTextField.placeholder = "Weight"
+        repsExerciseTextField.placeholder = "Repetetions"
         
         weightTextField.isHidden = false
+        
+        
         
     }
     
@@ -86,11 +93,11 @@ class NewExerciseAlertVC: UIViewController {
     
     
     @IBAction func okBtnPressed(_ sender: Any) {
-        delegate?.OkButtonTapped(delegate: self, dateTextField: dateTextField.text, weightTextField: weightTextField.text)
+        delegate?.OkButtonTapped(delegate: self, nameTextField: nameTextField.text, weightTextField: weightTextField.text, dateExercisePicker: dateExercisePicker.date, repsExerciseTextField: Int32(repsExerciseTextField.text!))
     }
     
     func validationOfTextFields(){
-        self.errorLabel.text = "Field's are empty.!"
+        self.errorLabel.text = "Field's are empty!"
     }
     
     
